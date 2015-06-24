@@ -7,6 +7,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem "omniauth-github", '1.1.1'
+gem 'hurley'
 
 group :test, :development do
   gem 'pry-rails'
@@ -19,6 +21,7 @@ group :test, :development do
   gem 'binding_of_caller'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'dotenv-rails'
   gem 'simplecov', :require => false
 end
 
