@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   validates :uid, :provider, presence: true
+  validates :bio, length: { maximum: 500 }
 
   def self.find_or_create_from_auth(auth)
     user = User.find_or_create_by(provider: auth.provider, uid: auth.uid)
