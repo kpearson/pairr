@@ -32,17 +32,4 @@ class User < ActiveRecord::Base
     user
   end
 
-  def posible_matches(user)
-    users = User.all
-    rejected(user)
-  end
-
-  def _rejected(user)
-    user.matchers.references( :matcher_matches ).where( matches: { rejected: true } )
-  end
-
-  def _selected(user)
-    user.matchers.references( :matcher_matches ).where( matches: { rejected: false } )
-  end
-
 end

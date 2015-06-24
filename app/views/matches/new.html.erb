@@ -16,8 +16,10 @@
       <%= image_tag @match.image_url, class: "match-image" %>
     </div>
     <div class="row col-sm-4 col-sm-offset-2">
-      <%= button_to "Pass", pass_path(reject: true, user_id: @match), class: "btn btn-lg btn-default btn-home pass-button", :method=>:post %>
-      <%= button_to "Pair", pass_path(reject: false, user_id: @match), class: "btn btn-lg btn-default btn-home pair-button", :method=>:post %>
+
+      <%= button_to "Pass", matcher_path(reject: true, user_id: @match), class: "btn btn-lg btn-default btn-home pass-button", :method=>:post %>
+      <%= button_to "Pair", matcher_path(reject: false, user_id: @match), class: "btn btn-lg btn-default btn-home pair-button", :method=>:post %>
+
     </div>
   </div>
 

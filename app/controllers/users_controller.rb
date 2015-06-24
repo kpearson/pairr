@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @match = User.find(params[:match_id])
     @languages = Language.all
   end
 

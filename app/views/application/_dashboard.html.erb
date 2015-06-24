@@ -1,5 +1,9 @@
 <div class="row col-sm-12">
 <h2 class="home">Dashboard</h2>
+<% if @match %>
+  <h3> <%= @match.name %></h3>
+  <h2> <%= @match.email %></h3>
+<% end %>
 
   <%= link_to "Find Pairs", new_match_path, class: "btn btn-lg btn-default btn-home"%>
 <h2>All your matches</h2>

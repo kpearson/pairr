@@ -1,8 +1,8 @@
 module ApplicationHelper
   def self.matches(current_user)
-    matchers_not_rejected = User.where.not( id: User.matchers_rejected(User.matchers(current_user)) )
-    matches = matchers_not_rejected.where.not( id: User.matchees_rejected(User.matchers(current_user)) )
-    matches = matches.concat( User.matchees_selected(User.matchers(current_user)) ).to_a
-    matches
+    potential_matches = User.where.not( id: User.matchers_rejected(User.matchers(current_user)) )
+    more_potential_matches = potential_matches.where.not( id: User.matchees_rejected(User.matchers(current_user)) )
+    all_matches = more_potential_matches.concat( User.matchees_selected(User.matchers(current_user)) ).to_a
+    all_matches.reverse.take(30).shuffle
   end
 end

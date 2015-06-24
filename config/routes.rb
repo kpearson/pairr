@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update]
   resources :welcome, only: :index
-  resources :matches, only: [:index, :new]
+  resources :matches, only: [:index, :new, :update,]
 
-  post "/pass", to: "matches#update"
+  post "/matches", to: "matches#create", as: "matcher"
 
   get "/auth/:provider/callback", to: "sessions#create"
   get "/logout", to: "sessions#destroy"

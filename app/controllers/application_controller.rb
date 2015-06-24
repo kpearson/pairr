@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   before_action :set_cache_buster
   protect_from_forgery with: :exception
+  rescue_from (ActiveRecord::RecordNotFound) { |exception| handle_exception(exception, 404) }
 
   helper_method :current_user
 
