@@ -10,16 +10,50 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *
  */
 
+@import "rails_bootstrap_forms";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 
+.user-card {
+  display: inline-block;
+  background-color: #ff9900;
+}
+
+.pass-button {
+  float: left;
+  background-color: darkred;
+  border-color: #60BFBF;
+  padding-right: 2em;
+}
+
+.pair-button {
+  float: right;
+  background-color: darkgreen;
+  border-color: #94902d;
+  padding-left: 2em;
+}
+
+.match-lang {
+  display: inline-block;
+}
+
+.match-image {
+  float: left;
+  max-width: 400px;
+}
+
+.match-info {
+  float: right;
+}
+
 .container-home {
-  background-color: #1B3C59;
+  background-color: #59571b;
   min-height: 100vh;
-  padding-top: 30vh;
+  padding-top: 10vh;
   text-align: center;
 }
 
@@ -31,12 +65,11 @@
 
 h1.home {
   font-size: 60px;
-  color: #F8BB44;
+  color: white;
 }
 
 a.btn.btn-lg.btn-default.btn-home {
   background-color: transparent;
-  border-width: 2px;
   color: #60BFBF;
   font-weight: 100;
   border-color: #60BFBF;

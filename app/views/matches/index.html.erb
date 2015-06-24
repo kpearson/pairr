@@ -1,0 +1,9 @@
+<div class="col-md-2"></div>
+  <div>
+    <% if current_user.bio && current_user.languages.any? %>
+      <%= render 'dashboard' %>
+    <% else %>
+      <%= render 'user_settings' %>
+    <% end %>
+  </div>
+<div class="col-md-2"></div>

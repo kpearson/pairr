@@ -11,10 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624021933) do
+ActiveRecord::Schema.define(version: 20150624103822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "languages", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.integer  "matcher_id"
+    t.integer  "matchee_id"
+    t.boolean  "rejected",   default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "user_languages", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "language_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "user_languages", ["language_id"], name: "index_user_languages_on_language_id", using: :btree
+  add_index "user_languages", ["user_id"], name: "index_user_languages_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -28,4 +52,6 @@ ActiveRecord::Schema.define(version: 20150624021933) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "user_languages", "languages"
+  add_foreign_key "user_languages", "users"
 end

@@ -1,0 +1,13 @@
+<div class="col-sm-8 col-sm-offset-2">
+  <% matches = @matches.take(5) %>
+  <% matches.each do |match| %>
+    <h3><%= match.name  %></h3>
+  <p><%= match.bio %></p>
+</div>
+<div class="row col-sm-8">
+  <h4>Prefered Languages</h4>
+  <% match.languages.each do |lang| %>
+    <%= lang.name %>
+<% end %>
+<% end %>
+</div>

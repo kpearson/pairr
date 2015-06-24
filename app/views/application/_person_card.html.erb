@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row col-sm-8 col-sm-offset-2 user-card">
+    <div class="col-sm-5 match-info">
+      <h3><%= @match.name  %></h3>
+      <p><%= @match.bio %></p>
+      <div class="row match-lang">
+        <h4>Prefered Languages</h4>
+        <% @match.languages.each do |lang| %>
+          <%= lang.name %>
+        <% end %>
+      </div>
+    </div>
+    <div class="match-image">
+      <%= image_tag @match.image_url, class: "match-image" %>
+    </div>

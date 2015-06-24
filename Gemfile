@@ -9,7 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem "omniauth-github", '1.1.1'
-gem 'hurley'
+gem 'bootstrap_form'
 
 group :test, :development do
   gem 'pry-rails'

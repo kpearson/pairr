@@ -1,0 +1,9 @@
+<h1>User Setting</h1>
+<h2> Please Tell Us Some More Information </h2>
+<%= bootstrap_form_for current_user do |f| %>
+  <div class="container">
+  <%= f.text_area :bio, label: "Some Information About Yourself -- Maximum 500 Characters" %>
+</div>
+<%= f.collection_check_boxes :languages, @languages, :id, :name %>
+<%= f.submit "Update Your Information", class: "btn btn-success" %>
+<% end %>

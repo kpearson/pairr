@@ -1,7 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'pry'
+
+#Language.create([{ name: "JavaScript" }, { name: "Java" }, { name: "Ruby" }, { name: "C" }, { name: "CSS" }, { name: "PHP" }, { name: "Python" }, { name: "C++" }, { name: "Objective-C" }, { name: "C#" }, { name: "Shell" }, { name: "R" }, { name: "CoffeeScript" }, { name: "Go" }, { name: "Perl" }, { name: "Scala" }, { name: "VimL" }, { name: "Clojure" }, { name: "Haskell" }, { name: "Erlang" }, { name: "Rust" }, { name: "Swift" }])
+
+users_json = ActiveSupport::JSON.decode(File.read('db/users.json'))
+
+users_json.each do |user|
+  User.create!(name: user['login'], bio: user["description"], uid: user["id"], provider: "github", image_url: user["avatar_url"], token: "123456789")
+end
+

@@ -1,0 +1,24 @@
+<h1>Pair?</h1>
+
+<div class="container">
+  <div class="row col-sm-8 col-sm-offset-2 user-card">
+    <div class="col-sm-5 match-info">
+      <h3><%= @match.name  %></h3>
+      <p><%= @match.bio %></p>
+      <div class="row match-lang">
+        <h4>Prefered Languages</h4>
+        <% @match.languages.each do |lang| %>
+          <%= lang.name %>
+        <% end %>
+      </div>
+    </div>
+    <div class"match-image">
+      <%= image_tag @match.image_url, class: "match-image" %>
+    </div>
+    <div class="row col-sm-4 col-sm-offset-2">
+      <%= button_to "Pass", pass_path(reject: true, user_id: @match), class: "btn btn-lg btn-default btn-home pass-button", :method=>:post %>
+      <%= button_to "Pair", pass_path(reject: false, user_id: @match), class: "btn btn-lg btn-default btn-home pair-button", :method=>:post %>
+    </div>
+  </div>
+
+</div>

@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
-  root "welcome#index"
+  root "matches#index"
 
-  resources :welcome
-  resources :matches
+  resources :users, only: [:edit, :update]
+  resources :welcome, only: :index
+  resources :matches, only: [:index, :new]
+
+  post "/pass", to: "matches#update"
 
   get "/auth/:provider/callback", to: "sessions#create"
   get "/logout", to: "sessions#destroy"
